@@ -1,4 +1,15 @@
 package mult;
+class Man extends Thread{
+	public void run() {
+		
+		for(int i = 0; i < 5 ; i++) {
+			try {
+			sleep(1000);
+		}catch(InterruptedException e) {}
+			System.out.println("ÊÕÅ!");
+		}
+	}
+}
 class Eggy extends Thread{
 	public void run() {
 		
@@ -13,16 +24,16 @@ class Eggy extends Thread{
 
 public class disput {
 	static Eggy mAnotherOpinion;
-	public static void main(String[] args) {
+	static Man mAnotherOpinion_v2;
+	public static void main(String[] args) throws InterruptedException {
 		mAnotherOpinion = new Eggy();
-		System.out.println("íà÷àòü ñïîð");
+		mAnotherOpinion_v2 = new Man();
+		System.out.println("start  the disput");
 		mAnotherOpinion.start();
-		for(int i = 0 ; i < 5 ; i++) {
-			try {
-				Thread.sleep(1000);
-			}catch(InterruptedException e) {}
-			System.out.println("ÊÓÐÈÖÀ!!!!");
-		}
+		mAnotherOpinion_v2.start();
+		
+		System.out.println("îáúåêò v1 "+ mAnotherOpinion.isAlive());
+		System.out.println("îáúåêò v2 "+ mAnotherOpinion_v2.isAlive());
 		if(mAnotherOpinion.isAlive()) {
 			try {
 				mAnotherOpinion.join();
@@ -32,6 +43,11 @@ public class disput {
 			System.out.println("ÊÓÐÈÖÀ-ÒÀÊÈ");
 			
 		}
+		
+		Thread.sleep(5000);
+		System.out.println("îáúåêò v1 "+ mAnotherOpinion.isAlive());
+		System.out.println("îáúåêò v2 "+ mAnotherOpinion_v2.isAlive());
+
 		System.out.println("ñïîð îêîí÷åí!");
 	}
 
