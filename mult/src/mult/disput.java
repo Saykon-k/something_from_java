@@ -9,7 +9,7 @@ class Man extends Thread{
 		}
 	}
 }
-class Eggy extends Thread{
+class Young_man extends Thread{
 	public void run() {
 		
 		for(int i = 0; i < 5 ; i++) {
@@ -22,39 +22,38 @@ class Eggy extends Thread{
 }
 
 public class disput {
-	static Eggy mAnotherOpinion;
-	static Man mAnotherOpinion_v2;
+	static Young_man young_man;
+	static Man old_man;
 	public static void main(String[] args) throws InterruptedException {
 		
-		mAnotherOpinion = new Eggy();
-		mAnotherOpinion_v2 = new Man();
+		young_man = new Young_man();
+		old_man = new Man();
 		System.out.println("start  the disput");
-		mAnotherOpinion.start();
-		mAnotherOpinion_v2.start();
+		young_man.start();
+		old_man.start();
 		
-		System.out.println("объект v1 "+ mAnotherOpinion.isAlive());
-		System.out.println("объект v2 "+ mAnotherOpinion_v2.isAlive());
+		System.out.println("объект v1 "+ young_man.isAlive());
+		System.out.println("объект v2 "+ old_man.isAlive());
 		
-		if(mAnotherOpinion.isAlive()) {
+		if(young_man.isAlive()) {
 			try {
-				mAnotherOpinion.join();
+				young_man.join();
 			}catch(InterruptedException r ) {}
-			System.out.println("ЯЙЦО-ТАКИ");
+			System.out.println("Коррупция побеждена");
 		}else {
-			System.out.println("КУРИЦА-ТАКИ");
+			System.out.println("Владимир путин молодец");
 			
 		}
 		
-		System.out.println("объект v1 "+ mAnotherOpinion.isAlive());
-		System.out.println("объект v2 "+ mAnotherOpinion_v2.isAlive());
+		System.out.println("объект v1 "+ young_man.isAlive());
+		System.out.println("объект v2 "+ old_man.isAlive());
 		
 		Thread.sleep(3000);
 		
-		System.out.println("объект v1 "+ mAnotherOpinion.isAlive());
-		System.out.println("объект v2 "+ mAnotherOpinion_v2.isAlive());
+		System.out.println("объект v1 "+ young_man.isAlive());
+		System.out.println("объект v2 "+ old_man.isAlive());
 		
 		System.out.println("спор окончен!");
 	}
 
 }
-
