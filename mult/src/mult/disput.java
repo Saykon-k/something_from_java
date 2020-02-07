@@ -1,12 +1,11 @@
 package mult;
 class Man extends Thread{
 	public void run() {
-		
 		for(int i = 0; i < 5 ; i++) {
 			try {
 			sleep(1000);
 		}catch(InterruptedException e) {}
-			System.out.println("КХЕ!");
+			System.out.println("mr Putin!");
 		}
 	}
 }
@@ -17,7 +16,7 @@ class Eggy extends Thread{
 			try {
 			sleep(1000);
 		}catch(InterruptedException e) {}
-			System.out.println("Яйцо в " + (i+1) + " раз тебе говорю!");
+			System.out.println("mr Navalny!");
 		}
 	}
 }
@@ -26,6 +25,7 @@ public class disput {
 	static Eggy mAnotherOpinion;
 	static Man mAnotherOpinion_v2;
 	public static void main(String[] args) throws InterruptedException {
+		
 		mAnotherOpinion = new Eggy();
 		mAnotherOpinion_v2 = new Man();
 		System.out.println("start  the disput");
@@ -34,6 +34,7 @@ public class disput {
 		
 		System.out.println("объект v1 "+ mAnotherOpinion.isAlive());
 		System.out.println("объект v2 "+ mAnotherOpinion_v2.isAlive());
+		
 		if(mAnotherOpinion.isAlive()) {
 			try {
 				mAnotherOpinion.join();
@@ -44,10 +45,14 @@ public class disput {
 			
 		}
 		
-		Thread.sleep(5000);
 		System.out.println("объект v1 "+ mAnotherOpinion.isAlive());
 		System.out.println("объект v2 "+ mAnotherOpinion_v2.isAlive());
-
+		
+		Thread.sleep(3000);
+		
+		System.out.println("объект v1 "+ mAnotherOpinion.isAlive());
+		System.out.println("объект v2 "+ mAnotherOpinion_v2.isAlive());
+		
 		System.out.println("спор окончен!");
 	}
 
