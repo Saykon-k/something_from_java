@@ -42,7 +42,7 @@ public class demo_v1 {
 		name_for_next_person.add(mother_name);
 		name_for_next_person.add(dad_name);
 		
-		System.out.println("Do you have information about? " + name_for_next_person.get(0)+".Write yes or no");
+		System.out.println("Do you have information about " + name_for_next_person.get(0)+".Write yes or no");
 		ans = scn.readLine();
 		
 		while(ans.equals("no")) {
@@ -50,7 +50,7 @@ public class demo_v1 {
 			all_people.add(new Person(name_for_next_person.get(0),0,"?","?","?"));
 			name_for_next_person.remove(0);
 			System.out.println("Do you have information about " + name_for_next_person.get(0)+".Write yes or no");
-		
+			
 		if(name_for_next_person.size()==0) {
 			break;
 		}

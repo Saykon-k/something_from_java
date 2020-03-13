@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class task_2 {
+public class task_2_Descending_Order {
 
 	public static void main(String[] args) {
 		System.out.println(sortDesc(15));// TODO Auto-generated method stub
@@ -14,7 +14,7 @@ public class task_2 {
 	public static int sortDesc(final int num) {
 		  String digit = Integer.toString(num);
 		   ArrayList<Integer> massiv = new ArrayList<Integer>();
-		
+	
 		  String res = "";
 		  for(int i = 0 ; i < digit.length(); i++) {
 			  res = digit.substring(i,i+1);
