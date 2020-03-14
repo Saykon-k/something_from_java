@@ -7,18 +7,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
-import org.omg.DynamicAny.NameValuePair;
+import java.util.List;
 
 public class task_10_Find_the_odd_int {
 	public static void main(String[] args) {
-		int[] ar = {20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5};
-		findDuplicatesUsingHashMap(ar);
 	}
-	private static void findDuplicatesUsingHashMap(int[] inputArray)
-	{
-	    HashMap<Integer, Integer> map = new HashMap<>();
-	         
-	    for (int element : inputArray) 
+	public static int findIt(int[] a) {
+		HashMap<Integer, Integer> map = new HashMap<>();
+	    
+	    for (int element : a) 
 	    {   
 	        if(map.get(element) == null)
 	        {
@@ -31,13 +28,16 @@ public class task_10_Find_the_odd_int {
 	    }
 	         
 	    Set<Entry<Integer, Integer>> entrySet = map.entrySet();
-	         
+	    int ciclo = 0 ; //)))))
 	    for (Entry<Integer, Integer> entry : entrySet) 
 	    {               
-	        if(entry.getValue() > 1)
+	        if(entry.getValue() %2 == 1)
 	        {
-	            System.out.println("Duplicate Element : "+entry.getKey()+" - found "+entry.getValue()+" times.");
+	            ciclo = entry.getKey();
+	          break;
 	        }
+	      
 	    }
-	}
+	  return ciclo;
+		}
 }
