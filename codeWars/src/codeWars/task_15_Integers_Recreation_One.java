@@ -52,8 +52,7 @@ public static String listSquared(long m, long n) {
 	
 	for(int i = 0; i < res1.length-1;i++) res +=res1[i]+", ";
 	res += res1[res1.length-1]+"]";
-	System.out.println(res);
-	 return null;
+	 return res;
 }
 }
 
