@@ -6,8 +6,6 @@ import java.util.HashMap;
 public class task_13_Texting_with_an_old_school_mobile_phone {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 	///неготов....
 	public static String sendMessage(String message) {
