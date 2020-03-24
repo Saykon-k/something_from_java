@@ -3,7 +3,7 @@ package codeWars;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 
-public class task_13_Texting_with_an_old_school_mobile_phone {
+public class not_ready_task_13_Texting_with_an_old_school_mobile_phone {
 
 	public static void main(String[] args) {
 	}
