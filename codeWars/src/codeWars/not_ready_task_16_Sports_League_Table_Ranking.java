@@ -41,9 +41,9 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 	  public static int[] computeRanks(int number, int[][] games) {
 
 		  HashMap<Integer, int[]> map = new HashMap<>();
-			
+			//a структура 0 - разница в очка 1 - количество выйгранных матчей 2 - номер комманды 3 забитые голы
 			for(int y = 0 ; y < number;y++) {
-				int a[] = {0,0,y};
+				int a[] = {0,0,y,0};
 				map.put(y,a);
 			}
 			for(int i = 0; i < games.length; i++) {
@@ -78,11 +78,12 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 				}
 			}			 
 
-			int all [][] = new int[number][3];
+			int all [][] = new int[number][2];
 			 for(int i = 0; i < number;i++ ) {
 				 all[i] = map.get(i);
 				 }
 			 sortbyColumn(all,1);
+
 			 int p = 1;
 			 ArrayList<int[]> fin2 = new ArrayList<int[]>();
 			 ArrayList<int[]> fin3 = new ArrayList<int[]>();
@@ -133,7 +134,9 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 for(int i = 0; i < fin3.size(); i++) {
 				 all[i] = fin3.get(i);
 			 }
-
+			 for(int i = 0; i < number;i++ ) {
+			 System.out.println(all[i][0] +" " + all[i][1] + " " + all[i][2] +" " + all[i][3]);
+			 }
 			 System.out.println();
 			 int mem[] = new int[fin3.size()];
 			 p=1;
@@ -183,6 +186,13 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 						mem[all[0][2]] = k; 
 					}
 				}
+	
+		
+	 System.out.println("all final");
+			 for(int i = 0; i < number;i++ ) {
+				 System.out.println(all[i][0] +" " + all[i][1] + " " + all[i][2] +" " + all[i][3]);
+				 }
+System.out.println();
 
 		  return mem;
 	  }
