@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class     not_ready_task_16_Sports_League_Table_Ranking{
+public class     copy_16{
  
 	
 //неготово и не будет готова в ближайшее время и нет сравнения по количеству забитых голов  
@@ -34,7 +34,7 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
         {2, 0, 2, 0}};
 		int c1 [][]= {{0, 7, 2, 0}};
 		//computeRanks(6, a);
-		computeRanks(8, c1);
+		computeRanks(6, b);
 		//computeRanks(4, c);
 
 
@@ -94,6 +94,12 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 				 all[i] = map.get(i);
 				 }
 			 sortbyColumn(all,1);
+
+			 System.out.println("third first(1)");
+			 for(int i = 0; i < number;i++ ) {
+				 System.out.println(all[i][0] +" " + all[i][1] + " " + all[i][2] +" " + all[i][3]);
+				 }
+System.out.println();
 			 int p = 1;
 			 ArrayList<int[]> fin2 = new ArrayList<int[]>();
 			 ArrayList<int[]> fin3 = new ArrayList<int[]>();
@@ -147,6 +153,11 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 for(int i = 0; i < number;i++ ) {
 			 System.out.println(all[i][0] +" " + all[i][1] + " " + all[i][2] +" " + all[i][3]);
 			 }
+			 System.out.println("third second(0)");
+			 for(int i = 0; i < number;i++ ) {
+				 System.out.println(all[i][0] +" " + all[i][1] + " " + all[i][2] +" " + all[i][3]);
+				 }
+System.out.println();
 			 p = 1;
 			 fin2.clear();
 			 fin3.clear();
@@ -198,6 +209,14 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 				 all[i] = fin3.get(i);
 			 }
 			 
+			 System.out.println("third sort");
+			 for(int i = 0; i < number;i++ ) {
+				 System.out.println(all[i][0] +" " + all[i][1] + " " + all[i][2] +" " + all[i][3]);
+				 }
+System.out.println();
+			 
+			 
+			 System.out.println();
 			 int mem[] = new int[fin3.size()];
 			 p=1;
 			 int k = 1;
@@ -260,6 +279,14 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 						mem[all[0][2]] = k; 
 					}
 				}
+	
+		
+	 System.out.println("all final");
+			 for(int i = 0; i < number;i++ ) {
+				 System.out.print(mem[i]+" ");
+				 }
+System.out.println();
+
 		  return mem;
 	  }
 	    
