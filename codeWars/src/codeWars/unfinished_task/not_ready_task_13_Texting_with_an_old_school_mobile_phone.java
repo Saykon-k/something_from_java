@@ -1,4 +1,4 @@
-package codeWars;
+package codeWars.unfinished_task;
 
 import java.nio.charset.Charset;
 import java.util.HashMap;
