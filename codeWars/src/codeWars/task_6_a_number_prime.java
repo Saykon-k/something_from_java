@@ -4,7 +4,7 @@ import java.math.BigInteger;
 public class task_6_a_number_prime {
 	  public static void main(String args[])  
 	    {  
-	      System.out.println(isPrime(-5));
+	      System.out.println(isPrime(101));
 	    }  
 	  public static boolean isPrime(int number) {
 		  	if(number > 0 ) {
