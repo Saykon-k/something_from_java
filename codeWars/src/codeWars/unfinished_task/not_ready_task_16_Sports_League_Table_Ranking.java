@@ -38,10 +38,9 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 		//computeRanks(4, c);
 
 
-//первый и второй тесты окей ,третий провалился на сортировке 
+//тесты проходит,но проваливается в подсчете очков - подумать 
 } 
-	  public static int[] computeRanks(int number, int[][] games) {
-
+	public static int[] computeRanks(int number, int[][] games) {
 
 		  HashMap<Integer, int[]> map = new HashMap<>();
 			//a структура 0 - разница в очка 1 - количество выйгранных матчей 2 - номер комманды 3 забитые голы
@@ -100,24 +99,27 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 ArrayList<int[]> fin3 = new ArrayList<int[]>();
 			 boolean wow = false;
 			
+
+			
 			 for(int i = 0 ; i < all.length-1;i++) {
 				 while(all[i][1] == all[i+p][1]) {
 					 if( p == 1 ) {
 					 fin2.add(all[i]);						
 					 fin2.add(all[i+p]);
 					 p++;
-					 if(p+i > all.length-1) {
-						 break;
-					 }
 					 }else {
 						 fin2.add(all[i+p]);
 						 p++;
-
+						 if(p+i > all.length-1) {
+						 	 wow = true;
+							 break;
+						 }
 					 }
-					 if(p+i > all.length) {
+					 if(p+i > all.length-1) {
 					 	 wow = true;
 						 break;
 					 }
+
 				 }
 			 	 if(p != 1) {
 					 int xc = 0;
@@ -131,11 +133,13 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 						 fin3.add(u[i1]);
 					 }
 					 i += p-1;
+					 if (!wow) {
 					 p = 1;
+					 }
 
 				 }else {
 					 fin3.add(all[i]);
- 				 } 
+				 } 
 				 if( wow ) {
 					 break;
 				 }
@@ -144,6 +148,8 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 if(p == 1) {
 				 fin3.add(all[all.length-1]);
 			 }
+
+
 			 for(int i = 0; i < fin3.size(); i++) {
 				 all[i] = fin3.get(i);
 			 }
@@ -152,22 +158,25 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 fin2.clear();
 			 fin3.clear();
 			  wow = false;
-			
+			for(int i = 0; i< all.length;i++) {
+				System.out.println(+all[i][0]+" "+all[i][1]+" "+all[i][2]+" "+all[i][3]+" ");
+			}
 			 for(int i = 0 ; i < all.length-1;i++) {
 				 while(all[i][0] == all[i+p][0]) {
 					 if( p == 1 ) {
 					 fin2.add(all[i]);						
 					 fin2.add(all[i+p]);
+
 					 p++;
-					 if(p+i > all.length-1) {
-						 break;
-					 }
 					 }else {
 						 fin2.add(all[i+p]);
 						 p++;
-
+						 if(p+i > all.length-1) {
+						 	 wow = true;
+							 break;
+						 }
 					 }
-					 if(p+i > all.length) {
+					 if(p+i > all.length-1) {
 					 	 wow = true;
 						 break;
 					 }
@@ -184,11 +193,12 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 						 fin3.add(u[i1]);
 					 }
 					 i += p-1;
+					 if (!wow) {
 					 p = 1;
-
+					 }
 				 }else {
 					 fin3.add(all[i]);
- 				 } 
+				 } 
 				 if( wow ) {
 					 break;
 				 }
@@ -247,6 +257,9 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 }
 			 }
 			 }
+			 if(cor != 0) {
+				 mem[all[all.length][2]] = p+cor;
+			 }
 		  return mem;
 	  }
 	    
@@ -268,5 +281,8 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 	                return -1; 
 	          } 
 	        });  // End of function call sort(). 
-	    } 
+	    }
+	  
 }
+//0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81
+//60 73 10 43 42 3 66 6 24 1 81 79 51 17 36 57 41 2 38 19 74 34 12 56 16 26 18 44 58 29 72 11 15 67 40 69 28 80 46 37 59 4 49 52 78 47 65 13 48 33 82 61 77 
