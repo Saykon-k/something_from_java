@@ -38,7 +38,7 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 		//computeRanks(4, c);
 
 
-
+//первый и второй тесты окей ,третий провалился на сортировке 
 } 
 	  public static int[] computeRanks(int number, int[][] games) {
 
