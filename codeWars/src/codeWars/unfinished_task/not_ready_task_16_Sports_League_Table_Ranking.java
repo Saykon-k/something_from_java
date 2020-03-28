@@ -34,13 +34,14 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
         {2, 0, 2, 0}};
 		int c1 [][]= {{0, 7, 2, 0}};
 		//computeRanks(6, a);
-		computeRanks(8, c1);
+		computeRanks(4, c);
 		//computeRanks(4, c);
 
 
 
 } 
 	  public static int[] computeRanks(int number, int[][] games) {
+
 
 		  HashMap<Integer, int[]> map = new HashMap<>();
 			//a структура 0 - разница в очка 1 - количество выйгранных матчей 2 - номер комманды 3 забитые голы
@@ -104,8 +105,10 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 					 if( p == 1 ) {
 					 fin2.add(all[i]);						
 					 fin2.add(all[i+p]);
-
 					 p++;
+					 if(p+i > all.length-1) {
+						 break;
+					 }
 					 }else {
 						 fin2.add(all[i+p]);
 						 p++;
@@ -144,9 +147,7 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 for(int i = 0; i < fin3.size(); i++) {
 				 all[i] = fin3.get(i);
 			 }
-			 for(int i = 0; i < number;i++ ) {
-			 System.out.println(all[i][0] +" " + all[i][1] + " " + all[i][2] +" " + all[i][3]);
-			 }
+
 			 p = 1;
 			 fin2.clear();
 			 fin3.clear();
@@ -157,8 +158,10 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 					 if( p == 1 ) {
 					 fin2.add(all[i]);						
 					 fin2.add(all[i+p]);
-
 					 p++;
+					 if(p+i > all.length-1) {
+						 break;
+					 }
 					 }else {
 						 fin2.add(all[i+p]);
 						 p++;
@@ -197,69 +200,53 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 for(int i = 0; i < fin3.size(); i++) {
 				 all[i] = fin3.get(i);
 			 }
-			 
 			 int mem[] = new int[fin3.size()];
 			 p=1;
-			 int k = 1;
 			 int cor = 0;
-			 for(int i = fin3.size()-1; i >1; i--){
-				if(all[i][1] > all[i-p][1]) {
-					if(cor > 0) {
-					mem[all[i][2]] = k;
-					mem[all[i-p][2]] = k+cor+1;
-					k += cor+2;
-					cor = 0;
-					}else {
-						mem[all[i][2]] = k;
-						mem[all[i-p][2]] = k+1;
-						k++;
-					}
-				}else {
-					if(all[i][0] > all[i-p][0]) {
-						if(cor > 0) {
-							mem[all[i][2]] = k;
-							mem[all[i-p][2]] = k+cor+1;
-							k += cor+2;
-							cor = 0;
-							}else {
-								mem[all[i][2]] = k;
-								mem[all[i-p][2]] = k+1;
-								k+=2;
-								i -= p;
-							}
-					}else {
-						if(all[i][3] > all[i-p][3]) {
-							if(cor > 0) {
-								mem[all[i][2]] = k;
-								mem[all[i-p][2]] = k+cor+1;
-								k += cor+2;
-								cor = 0;
-								}else {
-									mem[all[i][2]] = k;
-									mem[all[i-p][2]] = k+1;
-									k+=2;
-									i -= p;
-								}
-						
-					}else {
-						mem[all[i][2]] = k+cor; 
-						mem[all[i-p][2]] = k+cor;
-						cor++;
-					}
-				}
+			 for(int i = fin3.size()-1; i > 0;i--) {
+				 if(all[i][1] > all[i-1][1]) {
+					 if(cor ==  0) {
+					 mem[all[i][2]]=p;
+					 mem[all[i-1][2]]=p+1;
+					 p+=1;
+					 }else {
+						 mem[all[i][2]]=p;
+						 mem[all[i-1][2]]=p+1+cor;
+						 p+=1+cor;
+						 cor=0;
+					 }
+				 }else {
+					 if(all[i][0] > all[i-1][0]) {
+						 if(cor ==  0) {
+						 mem[all[i][2]]=p;
+						 mem[all[i-1][2]]=p+1;
+						 p+=1;
+						 }else {
+							 mem[all[i][2]]=p;
+							 mem[all[i-1][2]]=p+1+cor;
+							 p+=1+cor;
+							 cor=0;
+						 }	 
+				 }else{
+					 if(all[i][3] > all[i-1][3]) {
+						 if(cor ==  0) {
+							 mem[all[i][2]]=p;
+							 mem[all[i-1][2]]=p+1;
+							 p+=1;
+							 }else {
+								 mem[all[i][2]]=p;
+								 mem[all[i-1][2]]=p+1+cor;
+								 p+=1+cor;
+								 cor=0;
+							 }	 
+			 }else {
+				 mem[all[i][2]] = p;
+				 mem[all[i-1][2]] = p;
+				 cor +=1;
 			 }
 			 }
-			 if(all[0][3] < all[0+p][3]) {
-				 
-						mem[all[0][2]] = k+cor+1;
-					
-				}else {
-					if(all[0][0] < all[0+p][0]) {
-							mem[all[0][2]] = k+cor+1;
-					}else {
-						mem[all[0][2]] = k; 
-					}
-				}
+			 }
+			 }
 		  return mem;
 	  }
 	    
