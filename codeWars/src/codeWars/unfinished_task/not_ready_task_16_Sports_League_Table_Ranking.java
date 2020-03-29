@@ -34,11 +34,11 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
         {2, 0, 2, 0}};
 		int c1 [][]= {{0, 7, 2, 0}};
 		//computeRanks(6, a);
-		computeRanks(4, c);
+		computeRanks(8, c1);
 		//computeRanks(4, c);
 
 
-//тесты проходит,но проваливается в подсчете очков - подумать 
+//3-ая сортировка фигня
 } 
 	public static int[] computeRanks(int number, int[][] games) {
 
@@ -217,7 +217,6 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 				 if(all[i][1] > all[i-1][1]) {
 					 if(cor ==  0) {
 					 mem[all[i][2]]=p;
-					 mem[all[i-1][2]]=p+1;
 					 p+=1;
 					 }else {
 						 mem[all[i][2]]=p;
@@ -229,7 +228,6 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 					 if(all[i][0] > all[i-1][0]) {
 						 if(cor ==  0) {
 						 mem[all[i][2]]=p;
-						 mem[all[i-1][2]]=p+1;
 						 p+=1;
 						 }else {
 							 mem[all[i][2]]=p;
@@ -241,7 +239,6 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 					 if(all[i][3] > all[i-1][3]) {
 						 if(cor ==  0) {
 							 mem[all[i][2]]=p;
-							 mem[all[i-1][2]]=p+1;
 							 p+=1;
 							 }else {
 								 mem[all[i][2]]=p;
@@ -257,9 +254,10 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 }
 			 }
 			 }
-			 if(cor != 0) {
-				 mem[all[all.length][2]] = p+cor;
+			 if(cor == 0) {
+				 mem[all[0][2]] = p;
 			 }
+			 for(int i : mem )System.out.print (i+" ");
 		  return mem;
 	  }
 	    
