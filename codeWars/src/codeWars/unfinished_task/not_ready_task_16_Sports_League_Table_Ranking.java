@@ -34,11 +34,11 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
         {2, 0, 2, 0}};
 		int c1 [][]= {{0, 7, 2, 0}};
 		//computeRanks(6, a);
-		computeRanks(8, c1);
+		computeRanks(6, b);
 		//computeRanks(4, c);
 
 
-//3-ая сортировка фигня
+//переписать сортировку - это ужасно.
 } 
 	public static int[] computeRanks(int number, int[][] games) {
 
@@ -102,7 +102,7 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 
 			
 			 for(int i = 0 ; i < all.length-1;i++) {
-				 while(all[i][1] == all[i+p][1]) {
+				 while(all[i][0] == all[i+p][0]) {
 					 if( p == 1 ) {
 					 fin2.add(all[i]);						
 					 fin2.add(all[i+p]);
@@ -128,7 +128,7 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 						 u[xc] = kek;
 						 xc++;
 					 }
-					 sortbyColumn(u,0);
+					 sortbyColumn(u,3);
 					 for(int i1 = 0; i1 < p; i1++) {
 						 fin3.add(u[i1]);
 					 }
@@ -161,12 +161,11 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			for(int i = 0; i< all.length;i++) {
 				System.out.println(+all[i][0]+" "+all[i][1]+" "+all[i][2]+" "+all[i][3]+" ");
 			}
-			 for(int i = 0 ; i < all.length-1;i++) {
-				 while(all[i][0] == all[i+p][0]) {
+			for(int i = 0 ; i < all.length-1;i++) {
+				 while(all[i][1] == all[i+p][1]) {
 					 if( p == 1 ) {
 					 fin2.add(all[i]);						
 					 fin2.add(all[i+p]);
-
 					 p++;
 					 }else {
 						 fin2.add(all[i+p]);
@@ -180,6 +179,7 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 					 	 wow = true;
 						 break;
 					 }
+
 				 }
 			 	 if(p != 1) {
 					 int xc = 0;
@@ -196,6 +196,7 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 					 if (!wow) {
 					 p = 1;
 					 }
+
 				 }else {
 					 fin3.add(all[i]);
 				 } 
@@ -210,10 +211,18 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 			 for(int i = 0; i < fin3.size(); i++) {
 				 all[i] = fin3.get(i);
 			 }
-			 int mem[] = new int[fin3.size()];
+			 
+			 
+			 
+
+			 int mem[] = new int[all.length];
 			 p=1;
 			 int cor = 0;
-			 for(int i = fin3.size()-1; i > 0;i--) {
+			 System.out.println("all sorted");
+				for(int i = 0; i< all.length;i++) {
+					System.out.println(+all[i][0]+" "+all[i][1]+" "+all[i][2]+" "+all[i][3]+" ");
+				}
+			 for(int i = number-1; i > 0;i--) {
 				 if(all[i][1] > all[i-1][1]) {
 					 if(cor ==  0) {
 					 mem[all[i][2]]=p;
@@ -235,7 +244,9 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 							 p+=1+cor;
 							 cor=0;
 						 }	 
-				 }else{
+				 }else {
+					 System.out.println(i-1+"=i-1");
+					 System.out.println(all[0][2]);
 					 if(all[i][3] > all[i-1][3]) {
 						 if(cor ==  0) {
 							 mem[all[i][2]]=p;
@@ -246,15 +257,20 @@ public class     not_ready_task_16_Sports_League_Table_Ranking{
 								 p+=1+cor;
 								 cor=0;
 							 }	 
-			 }else {
-				 mem[all[i][2]] = p;
-				 mem[all[i-1][2]] = p;
-				 cor +=1;
+					 
+				 }else {
+					 mem[all[i][2]] = p;
+					 mem[all[i-1][2]] = p;
+					 cor +=1;
+				 }
 			 }
 			 }
+				 //System.out.println(cor+" шаг i "+i);
+
 			 }
-			 }
+			 System.out.println(cor);
 			 if(cor == 0) {
+				 System.out.println("YES");
 				 mem[all[0][2]] = p;
 			 }
 			 for(int i : mem )System.out.print (i+" ");
