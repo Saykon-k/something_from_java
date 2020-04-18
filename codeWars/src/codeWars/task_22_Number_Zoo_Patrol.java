@@ -27,4 +27,8 @@ public class task_22_Number_Zoo_Patrol {
 	        long sum = numbers.length + 1;
 	        return (int)(sum * (sum+1) / 2 - Arrays.stream(numbers).sum());
 	    }
+	    
+	    
+	    
+	    
 }
