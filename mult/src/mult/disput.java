@@ -54,6 +54,8 @@ public class disput {
 		System.out.println("объект v2 "+ old_man.isAlive());
 		
 		System.out.println("спор окончен!");
+		System.out.println("1"+1);
+
 	}
 
 }
