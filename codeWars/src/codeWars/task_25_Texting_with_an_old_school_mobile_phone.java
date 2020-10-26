@@ -6,5 +6,9 @@ public class task_25_Texting_with_an_old_school_mobile_phone {
 		// TODO Auto-generated method stub
 
 	}
+	  public static String sendMessage(String message) {
+		  
+		    return message;
+		  }
 
 }
